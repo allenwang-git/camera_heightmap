@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="downsample435" pkg="my_pcl" type="downsample435" respawn="true" output="screen" />
+  <node name="xlimit" pkg="my_pcl" type="xlimit" respawn="true" output="screen" />
+  <node name="ylimit" pkg="my_pcl" type="ylimit" respawn="true" output="screen" />
+  <node name="zlimit" pkg="my_pcl" type="zlimit" respawn="true" output="screen" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_pcl)/launch/mypcl.rviz"/>
+	
+</launch>

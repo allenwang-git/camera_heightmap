@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="pcdprocess435" pkg="my_pcl" type="pcdprocess435" respawn="true" output="screen" />
+   <node name="downsample435" pkg="my_pcl" type="downsample435" respawn="true" output="screen" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_pcl)/launch/mypcl.rviz"/>
+	
+</launch>
