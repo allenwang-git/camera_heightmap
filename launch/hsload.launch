@@ -1,0 +1,4 @@
+<launch>
+	<node name="hs_publisher" pkg="my_pcl" type="hsload" respawn="true" output="screen"/>
+
+</launch>

@@ -22,7 +22,8 @@ main(int argc, char **argv)
         return 1;
 
 //    ifstream fin("/home/allen/catkin_ws/src/my_pcl/data/heightmaprough.txt", ios::in);
-    ifstream fin("/home/allen/catkin_ws/src/my_pcl/data/heightmap12.txt", ios::in);
+//    ifstream fin("/home/allen/catkin_ws/src/my_pcl/data/heightmap18.txt", ios::in);
+    ifstream fin("/home/allen/catkin_ws/src/my_pcl/data/heightmap11.txt", ios::in);
     if(!fin)
     {
         printf("The file is not exist!");
@@ -39,7 +40,8 @@ main(int argc, char **argv)
     }
     fin.close();
 //    ifstream fin2("/home/allen/catkin_ws/src/my_pcl/data/scoremaprough.txt", ios::in);
-    ifstream fin2("/home/allen/catkin_ws/src/my_pcl/data/scoremap12.txt", ios::in);
+//    ifstream fin2("/home/allen/catkin_ws/src/my_pcl/data/scoremap18.txt", ios::in);
+    ifstream fin2("/home/allen/catkin_ws/src/my_pcl/data/scoremap11.txt", ios::in);
     if(!fin2)
     {
         printf("The file is not exist!");
@@ -51,11 +53,15 @@ main(int argc, char **argv)
         }
     }
     fin2.close();
-    while (true) {
+    long iters;
+    while (ros::ok()) {
         lcm.publish("heightmapnew", &heightnew_lcm);
+//        ros::Duration(0.1).sleep();//更新频率
         lcm.publish("traversability_float", &trav_lcm);
-        ros::Duration(0.2).sleep();//更新频率
-        printf("send successfully!\n");
+
+        iters ++;
+        if(iters%100==0)
+            printf("Send successfully!\n");
     }
 
 }
